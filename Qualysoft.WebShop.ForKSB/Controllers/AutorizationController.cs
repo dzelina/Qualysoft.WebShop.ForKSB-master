@@ -84,5 +84,11 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> SubscribeWebinar()
+        {
+            return View();
+        }
     }
 }
