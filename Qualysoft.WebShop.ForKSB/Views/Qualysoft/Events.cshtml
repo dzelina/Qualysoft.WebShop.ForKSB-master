@@ -1,0 +1,75 @@
+﻿@model Qualysoft.WebShop.ForKSB.Models.Account
+@{
+    ViewData["Title"] = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Qualysoft Webinar</h2><br />
+<h4>Sing Up :</h4>
+<form onSubmit="createObject(); return false">
+    <div class="form-group">
+        <label asp-for="FullName" class="control-label"></label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mobile" class="control-label"></label>
+        <input asp-for="Mobile" class="form-control" />
+        <span asp-validation-for="Mobile" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Company" class="control-label"></label>
+        <input asp-for="Company" class="form-control" />
+        <span asp-validation-for="Company" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" value="PrivacyPolicy" class="btn btn-default"  />I agree to the Terms of Service and Privacy Policy<br />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="SUBSCRIBE" class="btn btn-default" />
+    </div>
+
+</form>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<script>
+/**
+* Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
+* You can use #id or any other CSS selector that will define the input field explicitly.
+* Example: "Email": "#MyEmailField".
+* If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
+*/
+var config = {
+    fields: {
+        "Name": "#FullName", // Name of a visitor, submitting the page
+        "Email": "#Email", // Visitor's email
+        "MobilePhone": "#Mobile", // Visitor's phone number
+        "Company": "#Company", // Name of a company (for business landing pages)
+      //  "UseEmail": "css-selector", // Logical value: 'true' equals to visitor's opt-in to receive emails
+
+    },
+    landingId: "c336f85a-0ee6-4334-b720-c2112c5b14e4",
+    serviceUrl: "https://1-0788361-se-m-se-demo.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: ""
+};
+/**
+* The function below creates a object from the submitted data.
+* Bind this function call to the "onSubmit" event of the form or any other elements events.
+* Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    landing.createObjectFromLanding(config)
+}
+/**
+* The function below inits landing page using URL parameters.
+*/
+function initLanding() {
+    landing.initLanding(config)
+}
+jQuery(document).ready(initLanding)
+</script>
