@@ -75,6 +75,20 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> EditProfile(int Id)
+        {
+            Account acc = await _crud.GetAccountDetails(int.Parse(HttpContext.Session.GetString("Id")));
+            return View(acc);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProfile(Account acc)
+        {
+            await _crud.UpdateAccount(acc);
+            return View(acc);
+        }
+
+        [HttpGet]
         public IActionResult SignOut()
         {
             HttpContext.Session.Remove("Id");
