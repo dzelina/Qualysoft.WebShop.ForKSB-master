@@ -12,7 +12,7 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
 {
     public class AutorizationController : Controller
     {
-
+        //hgfytigh
         private readonly ICrudService _crud;
 
         public AutorizationController(ICrudService crud)
