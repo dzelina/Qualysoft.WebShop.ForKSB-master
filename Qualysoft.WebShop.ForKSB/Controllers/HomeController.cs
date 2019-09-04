@@ -39,5 +39,10 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult RegistrationConfirmation()
+        {
+            return View();
+        }
     }
 }
