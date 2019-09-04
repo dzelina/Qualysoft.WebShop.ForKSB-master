@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Qualysoft.WebShop.ForKSB.Database.Configurations;
 using Qualysoft.WebShop.ForKSB.Models;
 using System;
 using System.Collections.Generic;
@@ -22,5 +23,12 @@ namespace Qualysoft.WebShop.ForKSB.Database
         public DbSet<Product> Products { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<RelationProducts> Relations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new RelationsConfiguration());
+        }
     }
 }

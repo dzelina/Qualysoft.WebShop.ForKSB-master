@@ -9,14 +9,14 @@ using Qualysoft.WebShop.ForKSB.Database;
 namespace Qualysoft.WebShop.ForKSB.Migrations
 {
     [DbContext(typeof(QualysoftContext))]
-    [Migration("20190904095204_rewrite4")]
-    partial class rewrite4
+    [Migration("20190904111435_InitConfigs")]
+    partial class InitConfigs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -32,19 +32,22 @@ namespace Qualysoft.WebShop.ForKSB.Migrations
 
                     b.Property<string>("Country");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<string>("FullName");
 
                     b.Property<string>("Mobile");
 
-                    b.Property<string>("Password");
+                    b.Property<string>("Password")
+                        .IsRequired();
 
                     b.Property<string>("PostalCode");
 
                     b.Property<string>("Street");
 
-                    b.Property<string>("Username");
+                    b.Property<string>("Username")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
