@@ -57,5 +57,23 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         //    double num = rnd.NextDouble();
         //    return View(num);
         //}
+
+
+        [HttpGet]
+        public async Task<IActionResult> Purchase()
+        {
+            return View();
+        }
+
+        /*
+        [HttpGet]
+        public async Task<IActionResult> Delete(int productId)
+        {
+            int userId = int.Parse(HttpContext.Session.GetString("Id"));
+            await _crud.Delete(userId, productId);
+
+            return RedirectToAction("Products");
+        }
+        */
     }
 }

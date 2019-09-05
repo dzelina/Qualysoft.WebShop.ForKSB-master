@@ -90,5 +90,20 @@ namespace Qualysoft.WebShop.ForKSB.Services
             _context.Accounts.Update(acc);
             return await _context.SaveChangesAsync();
         }
+
+
+        /*
+        public async Task<int> Delete(int userId, int productId)
+        {
+            RelationProducts relation = new RelationProducts
+            {
+                ProductId = productId,
+                Visitor = userId
+            };
+
+            await _context.Relations.AddAsync(relation);
+            return await _context.SaveChangesAsync();
+        }
+        */
     }
 }
