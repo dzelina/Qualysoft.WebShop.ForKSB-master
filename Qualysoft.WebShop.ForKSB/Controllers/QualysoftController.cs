@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Qualysoft.WebShop.ForKSB.Models;
 using Qualysoft.WebShop.ForKSB.Services;
 
 namespace Qualysoft.WebShop.ForKSB.Controllers
@@ -62,7 +63,8 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         [HttpGet]
         public async Task<IActionResult> Purchase()
         {
-            return View();
+            Account acc = await _crud.GetAccountDetails(int.Parse(HttpContext.Session.GetString("Id")));
+            return View(acc);
         }
 
         /*
