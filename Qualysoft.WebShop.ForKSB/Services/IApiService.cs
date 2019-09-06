@@ -7,6 +7,6 @@ namespace Qualysoft.WebShop.ForKSB.Services
 {
     public interface IApiService
     {
-        object CallBPM();
+        object CallBPM(string mobile);
     }
 }

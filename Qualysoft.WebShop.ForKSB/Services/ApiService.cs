@@ -18,21 +18,22 @@ namespace Qualysoft.WebShop.ForKSB.Services
         /// AAAAAAAaaaAAAAAA
         /// </summary>
         /// <returns></returns>
-        public object CallBPM()
+        public object CallBPM(string mobile)
         {
-            //BpmOnlineHttpRequest bpmRequest = new BpmOnlineHttpRequest { Phone = "+31923912939" };
+            BpmOnlineHttpRequest bpmRequest = new BpmOnlineHttpRequest { Phone = "+31923912939" };
             string baseURL = @"https://2-4101138-se-m-se-demo.bpmonline.com/0/ServiceModel/EntityDataService.svc/ContactCollection";
             string Parameter = "(guid'c38d46fd-e405-491a-a508-01bb9760eecc')";
             string URL = $"{baseURL}{Parameter}";
-            string bpmRequest = "Phone : 7665544444";
+            
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
             webRequest.ContentType = "application/json;odata=verbose";
             webRequest.Method = "PUT";
             webRequest.Accept = "application/json;odata=verbose";
             webRequest.PreAuthenticate = true;
 
+
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Phone", "+3113131313");
+            parameters.Add("Phone", mobile);
 
             var serialized = JsonConvert.SerializeObject(parameters);
             byte[] body = Encoding.UTF8.GetBytes(serialized);
@@ -42,13 +43,13 @@ namespace Qualysoft.WebShop.ForKSB.Services
             requestStream.Write(body, 0, body.Length);
             requestStream.Close();
 
-            //NetworkCredential credential = new NetworkCredential("Supervisor", "Supervisor");
-            //CredentialCache cache = new CredentialCache();
-            //cache.Add(new Uri(URL), "Basic", credential);
-            //webRequest.Credentials = cache;
+            NetworkCredential credential = new NetworkCredential("Supervisor", "Supervisor");
+            CredentialCache cache = new CredentialCache();
+            cache.Add(new Uri(URL), "Basic", credential);
+            webRequest.Credentials = cache;
 
-            string encodedAuthorization = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes("Supervisor:Supervisor"));
-            webRequest.Headers.Add("Authorization", $"Basic {encodedAuthorization}");
+            //string encodedAuthorization = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes("Supervisor:Supervisor"));
+            //webRequest.Headers.Add("Authorization", $"Basic {encodedAuthorization}");
 
             string read = string.Empty;
             using (HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse())
