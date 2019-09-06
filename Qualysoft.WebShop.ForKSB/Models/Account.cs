@@ -24,4 +24,5 @@ namespace Qualysoft.WebShop.ForKSB.Models
         public string Company { get; set; }
 
     }
+
 }
