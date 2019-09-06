@@ -13,10 +13,12 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
     public class QualysoftController : Controller
     {
         private readonly ICrudService _crud;
+        private readonly IApiService _api;
 
-        public QualysoftController(ICrudService crud)
+        public QualysoftController(ICrudService crud, IApiService api)
         {
             _crud = crud;
+            _api = api;
         }
 
         [HttpGet]
@@ -81,6 +83,14 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
 
             return RedirectToAction("Products");
         }
+
+        [HttpGet]
+        public IActionResult CallBPM()
+        {
+            var response = _api.CallBPM();
+            return View();
+        }
+       
 
     }
 }
