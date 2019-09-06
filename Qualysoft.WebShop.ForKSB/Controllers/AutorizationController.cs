@@ -80,7 +80,7 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
             Account acc = await _crud.GetAccountDetails(int.Parse(HttpContext.Session.GetString("Id")));
             return View(acc);
         }
-
+        //sss
         [HttpPost]
         public async Task<IActionResult> EditProfile(Account acc)
         {
