@@ -85,6 +85,11 @@ namespace Qualysoft.WebShop.ForKSB.Services
             return await _context.Accounts.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        //public Account GetAccountDetails(int id)
+        //{
+        //    return _context.Accounts.FirstOrDefault(x => x.Id == id);
+        //}
+
         public async Task<int> UpdateAccount(Account acc)
         {
             _context.Accounts.Update(acc);

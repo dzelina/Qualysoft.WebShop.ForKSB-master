@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Qualysoft.WebShop.ForKSB.Models;
 using Qualysoft.WebShop.ForKSB.Services;
+using Qualysoft.WebShop.ForKSB.ViewModels;
 
 namespace Qualysoft.WebShop.ForKSB.Controllers
 {
@@ -63,8 +64,12 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         [HttpGet]
         public async Task<IActionResult> Purchase()
         {
+            PurchaseViewModel pVM = new PurchaseViewModel();
             Account acc = await _crud.GetAccountDetails(int.Parse(HttpContext.Session.GetString("Id")));
-            return View(acc);
+            pVM.Account = acc;
+            Random rnd = new Random();
+            pVM.OrderNo = rnd.Next(0, 999999);
+            return View(pVM);
         }
 
         /*
