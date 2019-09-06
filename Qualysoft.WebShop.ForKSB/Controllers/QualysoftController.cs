@@ -85,10 +85,10 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         }
 
         [HttpGet]
-        public IActionResult CallBPM()
+        public IActionResult CallBPM(string mobile)
         {
-            var response = _api.CallBPM();
-            return View();
+            var response = _api.CallBPM(mobile);
+            return RedirectToAction("EditProfile","Autorization", new { Id = int.Parse(HttpContext.Session.GetString("Id")) });
         }
 
     }

@@ -18,7 +18,7 @@ namespace Qualysoft.WebShop.ForKSB.Services
         /// AAAAAAAaaaAAAAAA
         /// </summary>
         /// <returns></returns>
-        public object CallBPM()
+        public object CallBPM(string mobile)
         {
             BpmOnlineHttpRequest bpmRequest = new BpmOnlineHttpRequest { Phone = "+31923912939" };
             string baseURL = @"https://2-4101138-se-m-se-demo.bpmonline.com/0/ServiceModel/EntityDataService.svc/ContactCollection";
@@ -32,7 +32,10 @@ namespace Qualysoft.WebShop.ForKSB.Services
             webRequest.PreAuthenticate = true;
 
 
-            var serialized = JsonConvert.SerializeObject(bpmRequest);
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("Phone", mobile);
+
+            var serialized = JsonConvert.SerializeObject(parameters);
             byte[] body = Encoding.UTF8.GetBytes(serialized);
             webRequest.ContentLength = body.Length;
 
