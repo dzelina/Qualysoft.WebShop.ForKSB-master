@@ -64,7 +64,7 @@ else
             @if (Context.Session.GetString("Id") != null && Context.Session.GetString("Cart") != null)
             {
                 <td>
-                    @Html.ActionLink("Delete", "Delete", "Qualysoft")
+                    @Html.ActionLink("Delete", "Delete", "Qualysoft", new { productId = item.Id })
                 </td>
             }
         </tr>
