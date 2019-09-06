@@ -17,6 +17,7 @@ namespace Qualysoft.WebShop.ForKSB.Services
         Task<List<Product>> GetMyProducts(int userId);
         Task<Account> GetAccountDetails(int id);
         Task<int> UpdateAccount(Account acc);
+        int DeleteProductFromCart(int userId, int prodId);
         //int UpdateAccount(Account acc);
     }
 }

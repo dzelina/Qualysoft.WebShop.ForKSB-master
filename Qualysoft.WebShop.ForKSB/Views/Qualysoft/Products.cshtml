@@ -61,14 +61,12 @@ else
                     @Html.ActionLink("AddToCart", "AddToCart", new { productId = item.Id })
                 </td>
             }
-            @*
-        else
-        {
-            <td>
-                @Html.ActionLink("Delete", "Delete", "Delete")
-            </td>
-        }
-            *@
+            @if (Context.Session.GetString("Id") != null && Context.Session.GetString("Cart") != null)
+            {
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Qualysoft")
+                </td>
+            }
         </tr>
         }
     </tbody>

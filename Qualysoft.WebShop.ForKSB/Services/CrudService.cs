@@ -97,18 +97,20 @@ namespace Qualysoft.WebShop.ForKSB.Services
         }
 
 
-        /*
-        public async Task<int> Delete(int userId, int productId)
-        {
-            RelationProducts relation = new RelationProducts
-            {
-                ProductId = productId,
-                Visitor = userId
-            };
 
-            await _context.Relations.AddAsync(relation);
-            return await _context.SaveChangesAsync();
+        public int DeleteProductFromCart(int userId, int productId)
+        {
+            RelationProducts relation = _context.Relations.FirstOrDefault(x => x.Visitor == userId && x.ProductId == productId);
+            if (relation != null)
+            {
+                _context.Remove(relation);
+                return _context.SaveChanges();
+            }
+            else
+                return 0;
+
+            
         }
-        */
+
     }
 }
