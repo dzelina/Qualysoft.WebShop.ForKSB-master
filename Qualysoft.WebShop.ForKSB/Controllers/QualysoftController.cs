@@ -90,7 +90,6 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
             var response = _api.CallBPM();
             return View();
         }
-       
 
     }
 }
