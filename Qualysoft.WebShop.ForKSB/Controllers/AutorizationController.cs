@@ -12,12 +12,14 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
 {
     public class AutorizationController : Controller
     {
-        //hgfytigh
+        
         private readonly ICrudService _crud;
+        private readonly IPasswordHasher _pwdHash;
 
-        public AutorizationController(ICrudService crud)
+        public AutorizationController(ICrudService crud,IPasswordHasher pwdHash)
         {
             _crud = crud;
+            _pwdHash = pwdHash;
         }
 
         [HttpGet]
@@ -39,6 +41,7 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         {
             if (ModelState.IsValid)
             {
+                login.Password = _pwdHash.EncryptPass(login.Password); //hashovanje passworda
                 var account = await _crud.Login(login.Password,login.Email);
                 HttpContext.Session.SetString("username", account.Username);
                 HttpContext.Session.SetString("Id", account.Id.ToString());
@@ -55,6 +58,7 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         {
             if(ModelState.IsValid)
             {
+                register.Password = _pwdHash.EncryptPass(register.Password); // hashovanje passworda
                 Account account = await _crud.Register(register.Username, register.Password, register.Email);
                 HttpContext.Session.SetString("username", account.Username);
                 HttpContext.Session.SetString("Id", account.Id.ToString());
@@ -80,7 +84,8 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
             Account acc = await _crud.GetAccountDetails(Id);
             return View(acc);
         }
-        //sss
+        
+
         [HttpPost]
         public async Task<IActionResult> EditProfile(Account acc)
         {

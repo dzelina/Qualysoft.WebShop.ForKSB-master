@@ -34,6 +34,7 @@ namespace Qualysoft.WebShop.ForKSB
 
             services.AddTransient<ICrudService, CrudService>();
             services.AddTransient<IApiService, ApiService>();
+            services.AddTransient<IPasswordHasher, PasswordHasher>();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(5);//You can set Time   
             });
