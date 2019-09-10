@@ -5,16 +5,17 @@
 
 <h2>Purchase</h2>
 
-<form>
+<form onSubmit="createObject(); return false"
+>
     <div class="form-group">
         <label asp-for="Account.Email" class="control-label"></label>
         <input asp-for="Account.Email" class="form-control" />
         <span asp-validation-for="Account.Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Account.Email" class="control-label"></label>
-        <input asp-for="Account.Email" class="form-control" />
-        <span asp-validation-for="Account.Email" class="text-danger"></span>
+        <label asp-for="Account.FullName" class="control-label"></label>
+        <input asp-for="Account.FullName" class="form-control" />
+        <span asp-validation-for="Account.FullName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -22,6 +23,52 @@
         <input asp-for="OrderNo" class="form-control" />
         <span asp-validation-for="OrderNo" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <input type="submit" value="Confirm" class="btn btn-default" />
+    </div>
 
 
 </form>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<script>
+    /**
+    * Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
+    * You can use #id or any other CSS selector that will define the input field explicitly.
+    * Example: "Email": "#MyEmailField".
+    * If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
+    */
+    var config = {
+        fields: {
+            "Contact": "#Account_FullName", // Name of a contact that makes an order
+            //"Account": "css-selector", // Name of an account that makes an order
+            "UsrOrderNumber": "#OrderNo", // Contact's mobile phone
+            "UsrEmail": "#Account_Email", // Name of an order recipient
+            //"Description": "css-selector", // Comments
+            //"DeliveryType": "css-selector", // Order delivery type
+           // "PaymentType": "css-selector", // Order payment type
+            //"DeliveryAddress": "css-selector" // Order delivery address
+        },
+        landingId: "910862f8-bfbe-428b-b721-4a92a7ad1475",
+        serviceUrl: "https://0834202-se-m-se-demo.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+        redirectUrl: ""
+    };
+    /**
+    * The function below creates a object from the submitted data.
+    * Bind this function call to the "onSubmit" event of the form or any other elements events.
+    * Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+    */
+    function createObject() {
+        landing.createObjectFromLanding(config)
+    }
+    /**
+    * The function below inits landing page using URL parameters.
+    */
+    function initLanding() {
+        landing.initLanding(config)
+    }
+    jQuery(document).ready(initLanding)
+</script>
