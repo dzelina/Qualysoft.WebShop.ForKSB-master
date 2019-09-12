@@ -85,9 +85,9 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         }
 
         [HttpGet]
-        public IActionResult CallBPM(string mobile)
+        public IActionResult CallBPM(string mobile, string zip, string street)
         {
-            var response = _api.CallBPM(mobile);
+            var response = _api.CallBPM(mobile, zip, street);
             return RedirectToAction("EditProfile","Autorization", new { Id = int.Parse(HttpContext.Session.GetString("Id")) });
         }
 

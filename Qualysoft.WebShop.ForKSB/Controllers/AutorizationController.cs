@@ -41,8 +41,8 @@ namespace Qualysoft.WebShop.ForKSB.Controllers
         {
             if (ModelState.IsValid)
             {
-                login.Password = _pwdHash.EncryptPass(login.Password); //hashovanje passworda
-                var account = await _crud.Login(login.Password,login.Email);
+                login.Password = _pwdHash.EncryptPass(login.Password); //hashovanje passworda 
+                var account = await _crud.Login(login.Password, login.Email);
                 HttpContext.Session.SetString("username", account.Username);
                 HttpContext.Session.SetString("Id", account.Id.ToString());
                 return RedirectToAction("Products", "Qualysoft");

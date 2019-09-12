@@ -18,11 +18,11 @@ namespace Qualysoft.WebShop.ForKSB.Services
         /// AAAAAAAaaaAAAAAA
         /// </summary>
         /// <returns></returns>
-        public object CallBPM(string mobile)
+        public object CallBPM(string mobile, string zip, string street)
         {
             //BpmOnlineHttpRequest bpmRequest = new BpmOnlineHttpRequest { Phone = "+44444444" };
-            string baseURL = @"https://2-4101138-se-m-se-demo.bpmonline.com/0/ServiceModel/EntityDataService.svc/ContactCollection";
-            string Parameter = "(guid'c38d46fd-e405-491a-a508-01bb9760eecc')";
+            string baseURL = @"https://0834202-se-m-se-demo.bpmonline.com/0/ServiceModel/EntityDataService.svc/ContactCollection";
+            string Parameter = "(guid'ae18421f-2e9e-477a-bbea-2c4a8dfd68c3')";
             string URL = $"{baseURL}{Parameter}";
             
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
@@ -33,7 +33,9 @@ namespace Qualysoft.WebShop.ForKSB.Services
 
 
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Phone", mobile);
+            parameters.Add("MobilePhone", mobile);
+            parameters.Add("Zip", zip);
+            parameters.Add("Address", street);
 
             var serialized = JsonConvert.SerializeObject(parameters);
             byte[] body = Encoding.UTF8.GetBytes(serialized);

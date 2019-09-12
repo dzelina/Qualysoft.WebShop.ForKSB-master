@@ -5,8 +5,8 @@
 
 <h2>Purchase</h2>
 
-<form onSubmit="createObject(); return false"
->
+<form onSubmit="createObject(); return false">
+
     <div class="form-group">
         <label asp-for="Account.Email" class="control-label"></label>
         <input asp-for="Account.Email" class="form-control" />
@@ -30,8 +30,7 @@
 
 </form>
 
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>*@
 <script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
 <script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
 <script>
@@ -45,9 +44,9 @@
         fields: {
             "Contact": "#Account_FullName", // Name of a contact that makes an order
             //"Account": "css-selector", // Name of an account that makes an order
-            "UsrOrderNumber": "#OrderNo", // Contact's mobile phone
+            //"UsrOrderNumber": "#OrderNo", // Contact's mobile phone
             "UsrEmail": "#Account_Email", // Name of an order recipient
-            //"Description": "css-selector", // Comments
+            "UsrOrderNo": "#OrderNo", // Comments
             //"DeliveryType": "css-selector", // Order delivery type
            // "PaymentType": "css-selector", // Order payment type
             //"DeliveryAddress": "css-selector" // Order delivery address
