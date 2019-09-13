@@ -22,7 +22,7 @@ namespace Qualysoft.WebShop.ForKSB.Services
         {
             //BpmOnlineHttpRequest bpmRequest = new BpmOnlineHttpRequest { Phone = "+44444444" };
             string baseURL = @"https://0834202-se-m-se-demo.bpmonline.com/0/ServiceModel/EntityDataService.svc/ContactCollection";
-            string Parameter = "(guid'ae18421f-2e9e-477a-bbea-2c4a8dfd68c3')";
+            string Parameter = "(guid'4f62ba51-3eb5-4860-a1df-63f7047d23d3')";
             string URL = $"{baseURL}{Parameter}";
             
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(URL);
