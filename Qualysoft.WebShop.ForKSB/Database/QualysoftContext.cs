@@ -19,7 +19,7 @@ namespace Qualysoft.WebShop.ForKSB.Database
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=qualysoftWebShop;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
-
+        //when you run for the first time app, run in Package Manager Console Update-Database
         public DbSet<Product> Products { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<RelationProducts> Relations { get; set; }

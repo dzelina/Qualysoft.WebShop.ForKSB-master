@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qualysoft.WebShop.ForKSB.Database;
 
 namespace Qualysoft.WebShop.ForKSB.Migrations
 {
     [DbContext(typeof(QualysoftContext))]
-    partial class QualysoftContextModelSnapshot : ModelSnapshot
+    [Migration("20190913150226_Guid")]
+    partial class Guid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

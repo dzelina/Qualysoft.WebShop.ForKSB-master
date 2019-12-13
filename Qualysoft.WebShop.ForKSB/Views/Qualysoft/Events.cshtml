@@ -3,7 +3,7 @@
     ViewData["Title"] = "Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>KSB Newsletter</h2><br />
+<h2>Munich Summer Night Registration</h2><br />
 <h4>Sing Up :</h4>
 <form onSubmit="createObject();  return false ">
     <div class="form-group">
@@ -30,7 +30,7 @@
         <input type="checkbox" value="PrivacyPolicy" class="btn btn-default" /> I agree to the Terms of Service and Privacy Policy<br />
     </div>
     <div class="form-group">
-        <input type="submit" value="SUBSCRIBE" class="btn btn-default" onsubmit="subscribe()"/>
+        <input type="submit" value="SUBSCRIBE" class="btn btn-default" onsubmit="subscribe()" />
     </div>
 
 </form>
@@ -58,8 +58,8 @@
             //"Country": "css-selector", // Country
             //"Commentary": "css-selector" // Notes
         },
-        landingId: "b100a842-d22f-4e7b-a3a5-2e98befc2a5d",
-        serviceUrl: "https://0834202-se-m-se-demo.bpmonline.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+        landingId: "62b5a4ac-c032-4fac-ba3c-0c0338941b54",
+        serviceUrl: "https://061801-crm-bundle.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
         redirectUrl: "http://localhost:57397/Autorization/SubscribeWebinar"
     };
     /**
@@ -79,10 +79,22 @@
     jQuery(document).ready(initLanding)
 </script>
 
-<script>
-    function subscribe() {
-        console.log(document.location.origin + '@Url.Action("SubscribeWebinar", "Autorization")');
-        var path = document.location.origin + '@Url.Action("SubscribeWebinar", "Autorization")';
-        window.location.href = path;
-    }
-</script>
+@*<script type="text/javascript">
+        (
+            function (d, s, i, r)
+            {
+                if (d.getElementById(i))
+                {
+                    return;
+                }
+                var n = d.createElement(s);
+                e = d.getElementsByTagName(s)[0];
+                n.id = i;
+                n.src = "https://webtracking-v01.bpmonline.com/Src/tracking_" + r + ".js";
+                e.parentNode.insertBefore(n, e);
+            }
+        )
+            (
+            document, "script", "bpmTracking", "6wE5qQz469q0kTAKLOb9apWsA0FU0Z8HX6fR49sk"
+        );
+    </script>*@

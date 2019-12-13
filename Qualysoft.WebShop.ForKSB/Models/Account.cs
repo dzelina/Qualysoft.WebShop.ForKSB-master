@@ -22,6 +22,8 @@ namespace Qualysoft.WebShop.ForKSB.Models
         public string Street { get; set; }
         public string PostalCode { get; set; }
         public string Company { get; set; }
+        public string Guid { get; set; }
+
 
     }
 
